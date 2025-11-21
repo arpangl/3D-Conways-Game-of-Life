@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <cstdint>
 #include <string>
 
 enum class Backend {
@@ -25,17 +26,20 @@ struct CommonOptions {
     int cuda_streams = 1;            // CUDA specific
     std::size_t avx2_tile = 64;      // AVX2 specific
     std::size_t avx2_alignment = 32; // AVX2 specific
+    bool visualize = false;          // Enable terminal preview while simulating
 };
 
 struct SimulationOptions2D : public CommonOptions {
     std::size_t width = 256;
     std::size_t height = 256;
+    std::uint32_t seed = 42;
 };
 
 struct SimulationOptions3D : public CommonOptions {
     std::size_t width = 128;
     std::size_t height = 128;
     std::size_t depth = 128;
+    std::uint32_t seed = 42;
 };
 
 struct VisualizationOptions2D {

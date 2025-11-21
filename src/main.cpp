@@ -3,6 +3,7 @@
 #include "simulation_options.hpp"
 
 #include <algorithm>
+#include <cstdint>
 #include <cctype>
 #include <exception>
 #include <iostream>
@@ -17,6 +18,11 @@ std::string to_lower(std::string value) {
         return static_cast<char>(std::tolower(c));
     });
     return value;
+}
+
+bool parse_bool(const std::string &value) {
+    const auto lowered = to_lower(value);
+    return lowered == "1" || lowered == "true" || lowered == "yes";
 }
 
 Backend parse_backend(const std::string &value) {
@@ -49,8 +55,8 @@ MultiSpeciesMode parse_mode(const std::string &value) {
 
 void print_usage() {
     std::cout << "Usage:\n"
-              << "  ./main 2d --width 800 --height 600 --iterations 10000 \\\n            --backend <cpu|avx2|openmp|cuda> --parallel_core 4 \\\n            --species <1-4> --mode <food_chain|symbiosis> \\\n            [--cuda_device 0 --cuda_streams 2 --avx2_tile 64 --avx2_alignment 32]\n"
-              << "  ./main 3d --width 512 --height 512 --depth 512 --iterations 10000 ...\n";
+              << "  ./main 2d --width 800 --height 600 --iterations 10000 --backend <cpu|avx2|openmp|cuda> --parallel_core 4 --species <1-4> --mode <food_chain|symbiosis> --seed 42 [--cuda_device 0 --cuda_streams 2 --avx2_tile 64 --avx2_alignment 32 --visualize 1]\n"
+              << "  ./main 3d --width 512 --height 512 --depth 512 --iterations 10000 --seed 42 ...\n";
 }
 
 } // namespace
@@ -88,6 +94,12 @@ int main(int argc, char **argv) {
             }
             if (auto it = args.find("iterations"); it != args.end()) {
                 options.iterations = std::stoull(it->second);
+            }
+            if (auto it = args.find("seed"); it != args.end()) {
+                options.seed = static_cast<std::uint32_t>(std::stoul(it->second));
+            }
+            if (auto it = args.find("visualize"); it != args.end()) {
+                options.visualize = parse_bool(it->second);
             }
             if (auto it = args.find("backend"); it != args.end()) {
                 options.backend = parse_backend(it->second);
@@ -166,6 +178,12 @@ int main(int argc, char **argv) {
             }
             if (auto it = args.find("iterations"); it != args.end()) {
                 options.iterations = std::stoull(it->second);
+            }
+            if (auto it = args.find("seed"); it != args.end()) {
+                options.seed = static_cast<std::uint32_t>(std::stoul(it->second));
+            }
+            if (auto it = args.find("visualize"); it != args.end()) {
+                options.visualize = parse_bool(it->second);
             }
             if (auto it = args.find("backend"); it != args.end()) {
                 options.backend = parse_backend(it->second);
