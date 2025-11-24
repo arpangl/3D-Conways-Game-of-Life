@@ -1,3 +1,25 @@
+# 進度條
+
+
+## 1、2D單物種：
+ok但沒互動純計時
+
+## 2、2D多物種 （物種間無互動） ：
+ok （加速過avx2  加速過cuda）但沒互動純計時
+
+## 3、3D 單物種：
+ok（加速過avx2 加速過cuda）但沒互動純計時
+
+## 4、3D自定義多物種：
+只有cpu互動版
+各種加速版: 待補
+離線計時版: 待補
+
+## 5、重力+地形版：
+
+未做
+
+
 # 3D Conway's Game of Life
 
 This project explores high-performance implementations of Conway's Game of Life extended to three dimensions. Multiple acceleration strategies – OpenMP, AVX/AVX2, AVX-512, and CUDA – are provided alongside a single-threaded baseline, ASCII visualizer, an optional OpenGL point-cloud viewer, benchmarking harness, and a reference 2D implementation.
