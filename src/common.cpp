@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "life_common.h"
 
 #include <algorithm>
@@ -95,3 +96,20 @@ void print_grid_slice(const Grid3D& grid, const LifeConfig3D& cfg, std::size_t z
 }
 
 }  // namespace gol3d
+=======
+#include "simulation_options.hpp"
+
+std::string backend_to_string(Backend backend) {
+    switch (backend) {
+    case Backend::CPU:
+        return "CPU";
+    case Backend::AVX2:
+        return "AVX2";
+    case Backend::OpenMP:
+        return "OpenMP";
+    case Backend::CUDA:
+        return "CUDA";
+    }
+    return "Unknown";
+}
+>>>>>>> 0.0.2.5

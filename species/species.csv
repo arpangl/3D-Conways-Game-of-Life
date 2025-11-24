@@ -1,0 +1,4 @@
+ID, Name, Survival Rules, Birth Rules, Strength, ImagePath
+1, Bulbasaur, {(1,2),(2,0)}{(1,3),(2,0)}, {(1,3),(2,0)}, 1, species/bulbasaur.png
+2, Ponyta, {(2,3)}{(2,2),(1,1)}{(2,2),(1,2)}{(2,3),(1,3)}{(2,3),(1,3)}, {(2,3),(1,1)}{(2,3),(1,2)}, 2, species/ponyta.png
+3, Sylveon, {(3,2)}{(3,3)}, {(3,3)}, 3, species/sylveon.png

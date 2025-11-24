@@ -1,0 +1,18 @@
+cd /mnt/d/0-IOC-1/PP/final/3D-Conways-Game-of-Life-0.0.2
+make clean
+make cuda
+
+
+export SKIP_OUTPUT=1
+
+# 1. CPU 
+time ./main 3d --width 64 --height 64 --depth 64 --iterations 100 --density 0.12 --backend cpu --output_every 100
+
+# 2. OpenMP 
+time ./main 3d --width 64 --height 64 --depth 64 --iterations 100 --density 0.12 --backend openmp --output_every 100
+
+# 3. AVX2 
+time ./main 3d --width 64 --height 64 --depth 64 --iterations 100 --density 0.12 --backend avx2 --output_every 100
+
+# 4. CUDA 
+time ./main 3d --width 64 --height 64 --depth 64 --iterations 100 --density 0.12 --backend cuda --output_every 100
