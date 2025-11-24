@@ -1,0 +1,10 @@
+backend,run,seconds
+cpu,1,280.447
+cpu,2,272.86
+cpu,3,272.994
+avx2,1,271.078
+avx2,2,271.717
+avx2,3,274.186
+openmp,1,271.897
+openmp,2,274.341
+openmp,3,272.086

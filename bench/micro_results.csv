@@ -1,0 +1,12 @@
+test,backend,threads,seconds
+micro,cpu,1,2.27
+micro,avx2,1,0.69
+micro,openmp,1,0.65
+micro,openmp,2,0.65
+micro,openmp,3,0.64
+micro,openmp,4,0.64
+micro,openmp,5,0.63
+micro,openmp,6,0.64
+micro,openmp,7,0.63
+micro,openmp,8,0.64
+micro,cuda,1,0.44
