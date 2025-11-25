@@ -1,0 +1,5 @@
+wsl -d Ubuntu -- bash -lc 'cd /mnt/d/0-IOC-1/PP/final/3D-Conways-Game-of-Life-0.0.1 && ./main 3d --width 24 --height 24 --depth 8 --iterations 30 --density 0.12 --backend cpu --output_every 1 2>&1 | sed -n "1,200p"'
+
+wsl -d Ubuntu -- bash -lc 'cd /mnt/d/0-IOC-1/PP/final/3D-Conways-Game-of-Life-0.0.1 && ls -1 frames_3d | sed -n "1,120p"'
+
+wsl -d Ubuntu -- bash -lc 'cd /mnt/d/0-IOC-1/PP/final/3D-Conways-Game-of-Life-0.0.1 && ./tools/visualize_3d_sdl --dir frames_3d --iter 0 2>&1 | sed -n "1,120p"'

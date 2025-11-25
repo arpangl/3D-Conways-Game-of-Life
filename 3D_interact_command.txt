@@ -1,0 +1,10 @@
+wsl -d Ubuntu
+ make clean
+ make -j4
+ make tools
+ export DISPLAY=:0
+ ./tools/realtime_viewer --fps 5
+./tools/realtime_viewer_avx2_prules --fps 5
+./tools/realtime_viewer_terrain --fps 5
+ # W前進 A左走 D右走 A後退 X下降 space上升 
+ #T開啟時停模式: 左鍵在目標地點追加物種 右鍵刪除物種 R切換物種
